@@ -55,3 +55,13 @@ Sem uso agora: public/photos/hair-clipper.jpg (Orce Wiki, CC BY-SA 4.0), saiu da
 ## Etapa 07 — Manifesto cinematográfico
 Fotografia única da seção (fundo, largura total, cores naturais, sem legenda visível): public/photos/chair-solo.jpg, "Barber's Chair (17334469536)" by Danny Fowler, CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=46994952. Alterações: recorte por CSS (object-fit/object-position, com leve ampliação), gradiente localizado de leitura e deriva sutil na rolagem; arquivo original não editado. Atribuição pública em /creditos (lista inalterada).
 Miniaturas removidas do Manifesto (razor-brush, red-chairs, razors-set): arquivos mantidos; continuam em uso em Estúdio (razor-brush, red-chairs) e Onde (razors-set), então seguem na lista pública.
+
+## Etapa 11 / 11B — seção Serviços
+- **razor-shave.jpg saiu de uso.** "Shaving with a Wacker straight razor" (Frank Schulenburg, CC0) foi a foto de Serviços até a Etapa 10; desde a Etapa 11 nenhum componente a referencia. O arquivo continua em `public/photos/` e `assets/` (nada apagado) e a entrada foi retirada da lista pública em `/creditos` (`lib/data.ts`). As menções acima a "Serviços" nesse arquivo são históricas.
+- **Fotografias novas em uso (Serviços), fornecidas pelo proprietário na Etapa 11:**
+  - Desktop, horizontal 1536 x 1024: original em `assets/servicos/servicos-foto-desktop-original.png`; versões web `public/servicos/servicos-desktop-1536.webp` e `-1100.webp`.
+  - Mobile e tablet (até 900 px), vertical 1024 x 1536: original em `assets/servicos/servicos-foto-mobile-original.png`; versões web `public/servicos/servicos-mobile-1024.webp`, `-768.webp` e `-512.webp`.
+  - Tratamento: só redimensionamento e conversão para WebP, mais recorte por CSS (`object-fit`). Sem filtro de cor.
+  - Mockup de referência (não é publicado no site): `assets/servicos/servicos-mockup-referencia.png`.
+  - Na página pública `/creditos` consta apenas: "fornecidas pelo proprietário do site".
+- **PENDÊNCIA (não preenchida de propósito):** o proprietário não informou a origem das duas fotos (fotografia própria, banco de imagens ou geração por IA), nem a ferramenta, o autor ou os direitos de uso. As imagens mostram a marca BRUTTO no avental e no quadro, o que indica criação sob medida para o projeto, mas isso não prova a procedência. Antes do lançamento, confirmar com o proprietário e registrar aqui; se forem geradas por IA, declarar isso na página `/creditos`, como já previsto para os fundos de Hero.

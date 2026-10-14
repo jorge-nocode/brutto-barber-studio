@@ -18,6 +18,10 @@ export default function CreditsPage() {
         versões adaptadas das fotos CC BY-SA são compartilhadas sob a mesma licença da foto original. Os autores não endossam
         este site.
       </p>
+      <p className="credits__lead">
+        Exceção: as fotografias da seção Serviços foram fornecidas pelo proprietário do site. Elas são exibidas sem tratamento de cor,
+        apenas redimensionadas e enquadradas.
+      </p>
       <ul className="credits__list">
         {credits.map((c) => (
           <li key={c.url}>
