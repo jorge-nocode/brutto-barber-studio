@@ -1,13 +1,15 @@
-import Image from "next/image";
 import Hero from "../components/Hero";
 import Booking from "../components/Booking";
 import Services from "../components/Services";
 import Manifesto from "../components/Manifesto";
 import Cuts from "../components/Cuts";
+import Studio from "../components/Studio";
 import Reveal from "../components/Reveal";
 import Preloader from "../components/Preloader";
 import Wordmark from "../components/Wordmark";
-import { ADDRESS, INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_DISPLAY, whatsappUrl } from "../lib/data";
+import LogoMark from "../components/LogoMark";
+import Hours from "../components/Hours";
+import { ADDRESS, INSTAGRAM_HANDLE, MAPS_EMBED_URL, MAPS_URL, INSTAGRAM_URL, WHATSAPP_DISPLAY, whatsappUrl } from "../lib/data";
 
 const HELLO = "Olá, BRUTTO! Gostaria de mais informações.";
 const idx = (n: number) => ({ ["--i" as string]: n }) as React.CSSProperties;
@@ -43,57 +45,22 @@ export default function Page() {
         <Cuts />
 
         {/* Estúdio */}
-        <section id="estudio" className="studio on-paper" aria-label="O estúdio">
-          <div className="wrap">
-            <div className="grid12">
-              <dl className="studio__facts" data-reveal>
-                <div><dt>Onde</dt><dd>{ADDRESS.street}<br />{ADDRESS.area}</dd></div>
-                <div><dt>Agenda</dt><dd>Hora marcada, de segunda a sábado</dd></div>
-                <div><dt>Contato</dt><dd><a className="link" href={whatsappUrl(HELLO)} target="_blank" rel="noopener noreferrer" style={{ whiteSpace: "nowrap" }}>{WHATSAPP_DISPLAY}</a></dd></div>
-              </dl>
-              <div className="studio__text">
-                <p className="studio__lead" data-reveal>
-                  <Image src="/photos/razor-brush.jpg" alt="Navalha de cabo claro sobre a tigela de louça, ao lado do pincel de barbear" width={400} height={400} sizes="120px" style={{ objectPosition: "38% 45%" }} />
-                  <b>O BRUTTO nasceu de uma ideia simples:</b> barbearia boa acerta a linha na primeira passada. Três
-                  cadeiras, agenda fechada por hora.
-                </p>
-                <p className="studio__more" data-reveal style={idx(1)}>
-                  Ninguém espera de pé. O nome vem do italiano e quer dizer bruto, áspero, sem verniz. O trabalho é o contrário disso: medida,
-                  simetria e acabamento limpo, do degradê à nuca.
-                </p>
-              </div>
-
-            <ul className="chairs" data-reveal>
-              <li><b>Janela</b><span>Cadeira da janela</span><span className="chair__who">Corte e degradê</span></li>
-              <li><b>Meio</b><span>Cadeira do meio</span><span className="chair__who">Barba e navalha</span></li>
-              <li><b>Fundo</b><span>Cadeira do fundo</span><span className="chair__who">Risco, sobrancelha e acabamento</span></li>
-            </ul>
-            </div>
-
-            <div className="grid12 studio__seats">
-              <figure data-shutter>
-                <Image src="/photos/chairs-row.jpg" alt="Fileira de cadeiras de barbeiro antigas, de couro preto e braços brancos, entre postes listrados" width={1920} height={1440} sizes="(min-width: 900px) 62vw, 100vw" />
-              </figure>
-              <figure data-shutter>
-                <Image src="/photos/red-chairs.jpg" alt="Cadeira de barbeiro de couro vermelho num salão de madeira" width={1920} height={1280} sizes="(min-width: 900px) 28vw, 70vw" style={{ aspectRatio: "3 / 4", objectFit: "cover", objectPosition: "82% 50%" }} />
-              </figure>
-            </div>
-          </div>
-        </section>
+        <Studio />
 
         {/* Agendar */}
         <section id="agendar" className="book on-ink" aria-labelledby="agendar-h">
           <div className="wrap">
             <div className="grid12">
               <div className="book__intro">
-                <h2 id="agendar-h" className="display section-head" data-reveal>
-                  <span>Sua vez</span>
-                  <span>na cadeira</span>
+                <p className="book__tag" data-reveal>Agendamento</p>
+                <h2 id="agendar-h" className="display book__h" data-reveal>
+                  <span className="book__line"><span>Sua vez</span></span>
+                  <span className="book__line"><span>na cadeira<b className="book__dot">.</b></span></span>
                 </h2>
-                <p data-reveal style={idx(1)}>
+                <p className="book__lead" data-reveal style={idx(1)}>
                   Escolha o serviço, o dia e o horário. A mensagem sai pronta no WhatsApp.
                 </p>
-                <small data-reveal style={idx(2)}>Domingo fechado. Sábado até 18h.</small>
+                <small className="book__hours" data-reveal style={idx(2)}>Domingo fechado. Sábado até 18h.</small>
               </div>
               <Booking />
             </div>
@@ -101,31 +68,47 @@ export default function Page() {
         </section>
 
         {/* Onde */}
-        <section id="onde" className="where on-paper" aria-labelledby="onde-h">
-          <div className="wrap">
-            <h2 id="onde-h" className="sr-only">Endereço, horário e contato</h2>
-            <div className="grid12 where__row">
-              <p className="where__lead" data-reveal>
+        <section id="onde" className="where" aria-labelledby="onde-h">
+          <div className="where__grid">
+            <div className="where__intro">
+              <p className="where__tag" data-reveal>Onde</p>
+              <h2 id="onde-h" className="display where__h" data-reveal>
+                <span className="where__line"><span>Chegue</span></span>
+                <span className="where__line"><span>sem pressa<b className="where__dot">.</b></span></span>
+              </h2>
+              <p className="where__lead" data-reveal style={idx(1)}>
                 Chegue na hora e sem pressa. Dúvida de serviço, preço ou encaixe, a gente responde pelo WhatsApp.
               </p>
-              <div className="where__photo" data-shutter>
-                <Image src="/photos/razors-set.jpg" alt="Estojo antigo aberto com várias navalhas de cabo de marfim" width={600} height={600} sizes="160px" style={{ objectPosition: "62% 50%" }} />
-              </div>
-              <div className="where__links" data-reveal style={idx(1)}>
-                <p>Fale com a gente</p>
-                <p><a className="link" href={whatsappUrl(HELLO)} target="_blank" rel="noopener noreferrer">WhatsApp {WHATSAPP_DISPLAY}</a></p>
-                <p><a className="link" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Instagram {INSTAGRAM_HANDLE}</a></p>
-                <p>{ADDRESS.street}<br />{ADDRESS.area}</p>
-              </div>
             </div>
 
-            <div className="hours" data-reveal>
-              <h3>Horário de funcionamento</h3>
-              <dl>
-                <div><dt>Segunda a sexta</dt><dd>9h às 20h</dd></div>
-                <div><dt>Sábado</dt><dd>9h às 18h</dd></div>
-                <div><dt>Domingo</dt><dd>Fechado</dd></div>
+            <div className="where__info" data-reveal style={idx(1)}>
+              <dl className="lines">
+                <div><dt>Endereço</dt><dd>{ADDRESS.street}<br />{ADDRESS.area}</dd></div>
+                <div><dt>WhatsApp</dt><dd><a className="link" href={whatsappUrl(HELLO)} target="_blank" rel="noopener noreferrer">{WHATSAPP_DISPLAY}</a></dd></div>
+                <div><dt>Instagram</dt><dd><a className="link" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">{INSTAGRAM_HANDLE}</a></dd></div>
               </dl>
+              <h3 className="where__sub">Horário de funcionamento</h3>
+              <Hours />
+            </div>
+          </div>
+
+          <div className="where__map" data-reveal>
+            <div className="where__frame">
+              <p className="where__fallback">O mapa não carregou. Use o link abaixo para abrir o endereço no Google Maps.</p>
+              <iframe
+                title={`Mapa do Google Maps: ${ADDRESS.street}, ${ADDRESS.area}`}
+                src={MAPS_EMBED_URL}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+            <div className="where__mapbar">
+              <p>Localização ilustrativa</p>
+              <a className="where__maplink" href={MAPS_URL} target="_blank" rel="noopener noreferrer">
+                <span>Abrir no Google Maps</span>
+                <svg viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M2 10L10 2M4 2h6v6" /></svg>
+              </a>
             </div>
           </div>
         </section>
@@ -133,27 +116,38 @@ export default function Page() {
 
       <footer className="footer on-ink">
         <div className="footer__top">
-          <div className="footer__invite" data-reveal>
-            <h2 className="display">
-              <span>Quem chega,</span>
-              <span>senta.</span>
+          <div className="footer__invite">
+            <h2 className="display footer__h" data-reveal>
+              <span className="footer__line"><span>Quem chega,</span></span>
+              <span className="footer__line"><span>senta<b className="footer__dot">.</b></span></span>
             </h2>
-            <a className="button" href="#agendar">Agendar horário</a>
+            <a className="footer__cta" href="#agendar" data-reveal style={idx(1)}>
+              <span>Agendar horário</span>
+              <svg viewBox="0 0 20 12" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2"><path d="M0 6h17M12 1l5 5-5 5" /></svg>
+            </a>
           </div>
-          <nav className="footer__links" aria-label="Contato" data-reveal style={idx(1)}>
-            <a className="link" href={whatsappUrl(HELLO)} target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            <a className="link" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a className="link" href="#onde">Como chegar</a>
-          </nav>
+          <div className="footer__nav" data-reveal style={idx(2)}>
+            <nav aria-label="Seções do site">
+              <p className="footer__label">Navegar</p>
+              <a href="#servicos">Serviços</a>
+              <a href="#cortes">Cortes</a>
+              <a href="#estudio">Estúdio</a>
+              <a href="#onde">Onde</a>
+              <a href="#agendar">Agendar</a>
+            </nav>
+            <nav aria-label="Contato e créditos">
+              <p className="footer__label">Contato</p>
+              <a href={whatsappUrl(HELLO)} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="/creditos">Créditos das fotografias</a>
+            </nav>
+          </div>
         </div>
 
-        <div className="footer__legal">
-          <p>© BRUTTO Barber Studio</p>
-          <p className="footer__credits">
-            <a className="link" href="/creditos">Créditos das fotografias</a>
-          </p>
+        <p className="footer__legal">© BRUTTO Barber Studio</p>
+        <div className="footer__brand" role="img" aria-label="BRUTTO Barber Studio" data-reveal>
+          <LogoMark />
         </div>
-        <div className="display footer__mark" aria-hidden="true">Brutto</div>
       </footer>
     </>
   );

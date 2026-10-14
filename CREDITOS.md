@@ -58,10 +58,24 @@ Miniaturas removidas do Manifesto (razor-brush, red-chairs, razors-set): arquivo
 
 ## Etapa 11 / 11B — seção Serviços
 - **razor-shave.jpg saiu de uso.** "Shaving with a Wacker straight razor" (Frank Schulenburg, CC0) foi a foto de Serviços até a Etapa 10; desde a Etapa 11 nenhum componente a referencia. O arquivo continua em `public/photos/` e `assets/` (nada apagado) e a entrada foi retirada da lista pública em `/creditos` (`lib/data.ts`). As menções acima a "Serviços" nesse arquivo são históricas.
-- **Fotografias novas em uso (Serviços), fornecidas pelo proprietário na Etapa 11:**
+- **Imagens novas em uso (Serviços), geradas com IA e fornecidas pelo proprietário na Etapa 11:**
   - Desktop, horizontal 1536 x 1024: original em `assets/servicos/servicos-foto-desktop-original.png`; versões web `public/servicos/servicos-desktop-1536.webp` e `-1100.webp`.
   - Mobile e tablet (até 900 px), vertical 1024 x 1536: original em `assets/servicos/servicos-foto-mobile-original.png`; versões web `public/servicos/servicos-mobile-1024.webp`, `-768.webp` e `-512.webp`.
   - Tratamento: só redimensionamento e conversão para WebP, mais recorte por CSS (`object-fit`). Sem filtro de cor.
   - Mockup de referência (não é publicado no site): `assets/servicos/servicos-mockup-referencia.png`.
-  - Na página pública `/creditos` consta apenas: "fornecidas pelo proprietário do site".
-- **PENDÊNCIA (não preenchida de propósito):** o proprietário não informou a origem das duas fotos (fotografia própria, banco de imagens ou geração por IA), nem a ferramenta, o autor ou os direitos de uso. As imagens mostram a marca BRUTTO no avental e no quadro, o que indica criação sob medida para o projeto, mas isso não prova a procedência. Antes do lançamento, confirmar com o proprietário e registrar aqui; se forem geradas por IA, declarar isso na página `/creditos`, como já previsto para os fundos de Hero.
+  - Na página pública `/creditos` consta: "Imagens conceituais geradas com inteligência artificial por meio do ChatGPT (OpenAI), para o projeto demonstrativo BRUTTO Barber Studio." (não são fotografias reais nem de acervo; sem autoria de fotógrafo nem licença de terceiros).
+- **Procedência (confirmada pelo proprietário após a Etapa 11B):** as duas imagens foram geradas com inteligência artificial pelo ChatGPT (OpenAI), especificamente para o projeto demonstrativo BRUTTO Barber Studio. Texto de crédito adotado: "Imagens conceituais geradas com inteligência artificial por meio do ChatGPT (OpenAI), para o projeto demonstrativo BRUTTO Barber Studio." Não há fotógrafo, banco de imagens nem licença de terceiros a atribuir. A pendência de procedência aberta na Etapa 11B está encerrada. Observação: os termos de uso de conteúdo gerado seguem os da OpenAI; se o site deixar de ser demonstrativo, revisar a adequação de imagens de IA (inclusive a marca BRUTTO que aparece nelas) ao uso comercial do cliente final.
+
+## Etapa 13 — seção Estúdio (remodelagem editorial)
+- **Cinco fotografias novas em uso, geradas com inteligência artificial por meio do ChatGPT (OpenAI), especificamente para o projeto demonstrativo BRUTTO Barber Studio** (fornecidas pelo proprietário). Não há fotógrafo, banco de imagens nem licença de terceiros a atribuir.
+  - Panorâmica do salão (1672 x 941): original `assets/estudio/estudio-panoramica-original.png`; web `public/estudio/estudio-panoramica-{800,1200,1672}.webp`.
+  - Cadeira da janela, do meio e do fundo (1086 x 1448): originais `assets/estudio/estudio-{janela,meio,fundo}-original.png`; web `public/estudio/estudio-{janela,meio,fundo}-{540,768,1086}.webp`.
+  - Detalhe da bancada (1536 x 1024): original `assets/estudio/estudio-detalhe-original.png`; web `public/estudio/estudio-detalhe-{560,900}.webp`.
+  - Tratamento: só redimensionamento e conversão para WebP (qualidade 82) e enquadramento por CSS. Sem filtro de cor. Mockup de referência (não publicado): `assets/estudio/estudio-mockup-referencia.png`.
+  - Crédito público em `/creditos` (parágrafo "Estúdio").
+- **Saíram de uso no Estúdio e da lista pública em `/creditos`:** `chairs-row.jpg` (Tomwsulcer, CC0), `red-chairs.jpg` (PattayaPatrol, CC BY-SA 4.0) e `razor-brush.jpg` (Frank Schulenburg, CC BY-SA 3.0). Arquivos mantidos em `public/photos/` e `assets/` (nada apagado). A entrada de `razors-set.jpg` passou a constar só em "Onde".
+
+## Etapa 15 — Contato/Onde e Rodapé
+- **razors-set.jpg saiu de uso.** "Set of seven cutthroat razors, London, England, 1801-1900" (Wellcome Collection, CC BY 4.0) estava só na seção Onde (a foto de 160 px). A seção foi refeita sem fotografia, então nenhum componente referencia o arquivo. O arquivo continua em `public/photos/` e `assets/` (nada apagado) e o registro correspondente foi retirado da lista pública em `/creditos` (`credits` em `lib/data.ts`). As menções históricas acima (Etapas anteriores) ficam como registro.
+- Créditos das demais fotografias em uso: inalterados.
+

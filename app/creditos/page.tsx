@@ -19,8 +19,15 @@ export default function CreditsPage() {
         este site.
       </p>
       <p className="credits__lead">
-        Exceção: as fotografias da seção Serviços foram fornecidas pelo proprietário do site. Elas são exibidas sem tratamento de cor,
-        apenas redimensionadas e enquadradas.
+        Exceção: as duas imagens da seção Serviços são imagens conceituais geradas com inteligência artificial por meio do ChatGPT
+        (OpenAI), para o projeto demonstrativo BRUTTO Barber Studio. Não são fotografias reais nem de acervo, e não há autoria de
+        fotógrafo nem licença de terceiros. Elas são exibidas sem tratamento de cor, apenas redimensionadas e enquadradas.
+      </p>
+      <p className="credits__lead">
+        Estúdio: as cinco fotografias da seção (visão geral do salão, cadeira da janela, cadeira do meio, cadeira do fundo e detalhe
+        da bancada) foram geradas com inteligência artificial por meio do ChatGPT (OpenAI), especificamente para o projeto
+        demonstrativo BRUTTO Barber Studio. Não são fotografias reais nem de acervo, e não há autoria de fotógrafo, banco de imagens
+        nem licença de terceiros. Elas são exibidas com as cores originais, apenas redimensionadas e enquadradas.
       </p>
       <ul className="credits__list">
         {credits.map((c) => (

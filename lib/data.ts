@@ -7,6 +7,10 @@ export const whatsappUrl = (text: string) => `https://wa.me/${WHATSAPP_NUMBER}?t
 export const INSTAGRAM_URL = "https://www.instagram.com/klabeldigital/";
 export const INSTAGRAM_HANDLE = "@klabeldigital";
 export const ADDRESS = { street: "Avenida Paulista, 1200", area: "Bela Vista, São Paulo/SP" }; // endereço ilustrativo
+// Google Maps a partir do mesmo endereço: embed por endereço (sem API key) e link para abrir no Maps.
+const MAPS_QUERY = encodeURIComponent(`${ADDRESS.street}, ${ADDRESS.area}`);
+export const MAPS_EMBED_URL = `https://www.google.com/maps?q=${MAPS_QUERY}&output=embed&hl=pt-BR`;
+export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${MAPS_QUERY}`;
 
 export type Service = { id: string; name: string; minutes: number; price: number };
 
@@ -44,10 +48,6 @@ export type Credit ={ title: string; by: string; lic: keyof typeof LICENSES; url
 export const credits: Credit[] = [
   { title: "Barber brings a haircut and beard to his client", by: "Shixart1985", lic: "CC BY 2.0", url: "https://commons.wikimedia.org/w/index.php?curid=195948209", file: "barber-razor.jpg", where: "Início e Cortes" },
   { title: "Barber cutting hair with comb. Back view of man in barber shop", by: "Nenad Stojkovic", lic: "CC BY 2.0", url: "https://commons.wikimedia.org/w/index.php?curid=116285951", file: "barber-comb.jpg", where: "Início e Cortes" },
-  { title: "Wacker Jungmeister Rasiermesser mit Pinsel und Schale", by: "Frank Schulenburg", lic: "CC BY-SA 3.0", url: "https://commons.wikimedia.org/w/index.php?curid=32760214", file: "razor-brush.jpg", where: "Manifesto e Estúdio" },
-  { title: "Set of seven cutthroat razors, London, England, 1801-1900", by: "Wellcome Collection", lic: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:Set_of_seven_cutthroat_razors,_London,_England,_1801-1900_Wellcome_L0058118.jpg", file: "razors-set.jpg", where: "Manifesto e Onde" },
   { title: "Barber's Chair (17334469536)", by: "Danny Fowler", lic: "CC BY-SA 2.0", url: "https://commons.wikimedia.org/w/index.php?curid=46994952", file: "chair-solo.jpg", where: "Manifesto" },
   { title: "Mid-fade 01, 06 e 07", by: "Classic Barbers", lic: "CC0", url: "https://commons.wikimedia.org/w/index.php?curid=147457018", file: "fade-a.jpg, fade-b.jpg, fade-c.jpg", where: "Início e Cortes" },
-  { title: "Phoenix Old Spaghetti Factory restaurant barber chairs", by: "Tomwsulcer", lic: "CC0", url: "https://commons.wikimedia.org/w/index.php?curid=39125209", file: "chairs-row.jpg", where: "Estúdio" },
-  { title: "DSCF1083 Vintage red barber chairs in a rustic wooden shop", by: "PattayaPatrol", lic: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/w/index.php?curid=194511634", file: "red-chairs.jpg", where: "Estúdio" },
 ];
