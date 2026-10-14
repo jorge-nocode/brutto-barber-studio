@@ -1,0 +1,22 @@
+/* Preloader: isolado. Só existe quando o script do <head> marca <html class="pl"> (todo carregamento completo,
+   exceto ?preloader=off e prefers-reduced-motion). */
+.preloader { display: none; position: fixed; inset: 0; z-index: 200; background: #000; }
+html.pl .preloader { display: block; }
+html.pl-lock { overflow: hidden; }
+
+/* Logo em voo: fora da cortina (não é cortado pela borda). Antes da hidratação fica centralizado só por CSS;
+   o JS troca para a caixa do logo do cabeçalho + transform (FLIP). */
+.preloader__fly { display: none; position: fixed; z-index: 210; pointer-events: none; left: 50%; top: 50%; width: max(220px, 25vw); height: calc(max(220px, 25vw) * 92 / 308); transform: translate(-50%, -50%); }
+html.pl .preloader__fly { display: block; }
+.preloader__fly .lm { width: 100%; height: 100%; }
+@media (max-width: 760px) { .preloader__fly { width: 56vw; height: calc(56vw * 92 / 251); } }
+/* estado inicial (antes da hidratação): nada desenhado */
+.preloader__fly .lm-p { stroke-dasharray: 1000; stroke-dashoffset: 1000; opacity: 0; }
+.preloader__fly .lm-sub { clip-path: inset(100% 0 0 0); }
+html.pl { scrollbar-gutter: stable; }
+
+/* A animação de entrada original do Hero fica em espera e começa do zero quando o preloader a libera (html.pl-go). */
+html.pl:not(.pl-go) .hero,
+html.pl:not(.pl-go) .hero *,
+html.pl:not(.pl-go) .hero *::before,
+html.pl:not(.pl-go) .hero *::after { animation-play-state: paused !important; }

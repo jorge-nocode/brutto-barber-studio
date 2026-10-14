@@ -1,0 +1,15 @@
+node_modules
+.next
+.taste-skill
+next-env.d.ts
+*.tsbuildinfo
+
+# pastas de trabalho (nao fazem parte do site)
+APROVACAO-*/
+HERO-REDESIGN/
+_backup-*/
+shots/
+refs/
+assets/
+.impeccable/
+.playwright-mcp/

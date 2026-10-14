@@ -1,0 +1,21 @@
+/* Logo vivo: a mesma estrutura no cabeçalho e no preloader. --lh = altura total da caixa do logo (letras = 76/92 dela). */
+:root { --lh: clamp(48px, 3.8vw, 56px); --lh-ar: 251 / 92; --lh-gap: 0.17; }
+@media (max-width: 1099px) { :root { --lh: 50px; } }
+@media (max-width: 760px) { :root { --lh: 46px; } }
+/* telefones: sem o selo vertical (a 46px de altura ele renderizaria com ~7px) e letras um pouco mais condensadas */
+@media (max-width: 479px) { :root { --lh: 46px; --lh-ar: 224 / 92; } }
+@media (max-width: 400px) { :root { --lh: 42px; } }
+
+.lm { display: flex; align-items: stretch; gap: calc(var(--lh) * var(--lh-gap)); }
+.lm-letters { display: block; height: 100%; width: auto; aspect-ratio: var(--lh-ar); overflow: visible; }
+.lm-side { display: block; height: 100%; width: auto; aspect-ratio: 50 / 92; overflow: visible; }
+@media (max-width: 479px) { .lm-side { display: none; } .lm { gap: 0; } }
+
+.lm-p { stroke: var(--cream, #f2e8d5); stroke-width: 13; stroke-linecap: butt; stroke-linejoin: miter; }
+.lm-sub text { fill: var(--cream, #f2e8d5); font-family: var(--font-work), system-ui, sans-serif; font-size: 20px; font-weight: 700; }
+.lm-l { transform-box: fill-box; transform-origin: 50% 100%; }
+
+.wordmark { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
+.wordmark .lm { height: var(--lh); transform-origin: 50% 50%; }
+/* durante o preloader o logo real fica oculto: quem aparece é o logo em voo (swap sem salto no fim) */
+html.pl .wordmark .lm { visibility: hidden; }
