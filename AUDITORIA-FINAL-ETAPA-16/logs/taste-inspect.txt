@@ -1,0 +1,66 @@
+TASTESKILL · INSPECT   http://localhost:3100
+
+MEASURED (first viewport listed)
+  hero headline   "O cuidado que faz a diferença. Ocuidadoquefazadiferença."  7 words · 1 line(s) · 43.5px (3vw) · Lora 400 · tracking -0.005em · leading 1.12
+  @768px          1 line(s) · 31.4px
+  @390px          2 line(s) · 28px
+  typefaces       Work Sans 60%, Lora 19%, Anton 10%, Barlow Condensed 10%, Mrs Saint Delafield 2%
+  sizes in use    11 / 12 / 13 / 15 / 16 / 17 / 18 / 19 / 20 / 21 / 22 / 24 / 28 / 30 / 32 / 33 / 34 / 37 / 42 / 44 / 52 / 55 / 63 / 78 / 95 / 107 / 135 / 150 / 210 px   body 17px / 1.7
+  colour          page #101010 · sections #0d0805 #101010 #1b1b1a #8a1212 #ece2d0 #f2e8d5 · button #e7e3da
+  page            10.5 screens · 648 words · 13 images · hero media 100% img
+  headings        44 · longest 4 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [headline-lines] @1440px  2 headline(s) wrap past two lines at 1440px: "Algumas coisas nunca saem de cena." → 3 lines (6 words, 63.4px); "O QUE SE FAZ É QUANTO CUSTA" → 4 lines (7 words, 135.4px)
+      → Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less.
+  [eyebrow] @1440px (+768, 390)  25 eyebrow/kicker label(s) above headings: "Barba · Cabelo · Atitude" above "O cuidado que faz a diferença. Ocuidadoq"; "BRUTTO / Manifesto" above "Algumas coisas nunca saem de cena."; "Serviços" above "O QUE SE FAZ É QUANTO CUSTA"; "01 — 04" above "R$ 70"; "Cabelo" above "01"
+      → Delete them. If the label carried real information, fold it into the headline or the supporting sentence.
+  [numbering] @1440px (+768, 390)  Decorative index numbers: "01", "02", "03", "01 — 04", "01", "02"
+      → Remove them. If order truly matters, write it into the words ("First, …") or use a real <ol>.
+  [micro-label] @1440px (+768, 390)  17 tiny uppercase letter-spaced labels (e.g. "Barba · Cabelo · Atitude", "Cortespersonalizados", "Atendimentocom hora marcada", "Ambienteexclusivo").
+      → Use sentence-case text at a readable size, or delete the label.
+  [gradient] @1440px (+768, 390)  1 gradient fill(s): section#cortes.cuts.on-blood → radial-gradient(70% 80% at 30% 20%, rgba(190, 40, 30, 0.35), rgba(190, 40, 30, 0) 70%), radial-gradient(120% 1
+      → Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.
+  [shadow] @1440px (+768, 390)  6 box-shadow(s) on elements at rest: figure.print.print--a → rgba(30, 0, 0, 0.55) 0px 12.96px 25.92px -8.64px | figure.print.print--b → rgba(30, 0, 0, 0.55) 0px 12.96px 25.92px -8.64px | figure.print.print--c → rgba(30, 0, 0, 0.55) 0px 12.96px 25.92px -8.64px
+      → Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).
+  [button-fx] @1440px (+768, 390)  Buttons with gradient fill.
+      → Flat fill, one colour.
+  [hairline] @1440px (+768, 390)  23 thin rule(s)/divider line(s): h3.svcs__label.is-in 572px | a.svc 572px | a.svc 572px | a.svc 572px
+      → Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.
+  [font-count] @1440px (+768, 390)  5 typefaces in use (Work Sans, Lora, Anton, Barlow Condensed, Mrs Saint Delafield).
+      → Two at most: one display, one text. Often one is enough.
+  [small-text] @1440px (+768, 390)  8 text blocks under 13px.
+      → Nothing meant to be read goes below 13px.
+  [covered-text] @1440px (+768, 390)  Large text lies under another element at some scroll position: "cuidado" (screen 1, 100% hidden); "que" (screen 1, 88% hidden); "faz" (screen 1, 100% hidden); "diferença." (screen 1, 100% hidden)
+      → Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.
+  [headline-lines] @768px  2 headline(s) wrap past two lines at 768px: "Algumas coisas nunca saem de cena." → 3 lines (6 words, 60px); "O QUE SE FAZ É QUANTO CUSTA" → 4 lines (7 words, 165.1px)
+      → Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 32px or less.
+  [headline-lines] @390px  3 headline(s) wrap past two lines at 390px: "Algumas coisas nunca saem de cena." → 3 lines (6 words, 33.6px); "O QUE SE FAZ É QUANTO CUSTA" → 4 lines (7 words, 83.9px); "O BRUTTO NASCEU DE UMA IDEIA SIMPLES:" → 3 lines (7 words, 43.7px)
+      → Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less.
+
+WARN — fix, or be able to defend
+  [mixed-font-headline] @1440px (+768, 390)  8 headline(s) switch typeface or to italic mid-line (the "one italic serif word" move).
+      → Set the whole headline in one face. Emphasis comes from the words.
+  [dashed] @1440px (+768, 390)  8 dashed/dotted border(s).
+      → Remove unless it is a real drop zone.
+  [palette-cream] @1440px (+768, 390)  Yellow-cream background (section #f2e8d5, button #e7e3da, text #e7e3da).
+      → Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.
+  [size-count] @1440px (+768, 390)  29 different font sizes (11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 24, 28, 30, 32, 33, 34, 37, 42, 44, 52, 55, 63, 78, 95, 107, 135, 150, 210).
+      → A page needs about five: display, heading, lead, body, small.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect/desktop-fold.jpg
+                  .taste-skill/inspect/desktop-page-01.jpg
+                  .taste-skill/inspect/desktop-page-02.jpg
+                  .taste-skill/inspect/desktop-page-03.jpg
+  tablet 768px    .taste-skill/inspect/tablet-fold.jpg
+                  .taste-skill/inspect/tablet-page-01.jpg
+                  .taste-skill/inspect/tablet-page-02.jpg
+  mobile 390px    .taste-skill/inspect/mobile-fold.jpg
+                  .taste-skill/inspect/mobile-page-01.jpg
+                  .taste-skill/inspect/mobile-page-02.jpg
+
+report: .taste-skill/inspect/report.json
+RESULT: 13 FAIL, 5 WARN — not done.

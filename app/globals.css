@@ -653,8 +653,8 @@ legend.step__label { float: left; }
 .hours__tag { font-weight: 500; letter-spacing: 0.08em; }
 .hours__row.is-today { color: var(--w-red); }
 
-.where__map { margin-top: clamp(3rem, 5vw, 5rem); }
-.where__frame { position: relative; height: 420px; background: #e1d6bf; }
+.where__map { margin-top: clamp(3rem, 5vw, 5rem); max-width: 1600px; margin-inline: auto; } /* monitores ultralargos: bloco do mapa (e a barra abaixo dele) limitado e centralizado */
+.where__frame { position: relative; height: clamp(420px, calc(420px + (100vw - 1440px) * 0.11), 640px); background: #e1d6bf; }
 .where__fallback { position: absolute; inset: 0; display: grid; place-items: center; padding: 1.5rem; text-align: center; font-size: 1rem; color: var(--w-soft); }
 .where__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #e1d6bf; }
 .where__mapbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.25rem 1.5rem; padding-top: 0.75rem; }
