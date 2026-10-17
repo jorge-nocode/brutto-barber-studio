@@ -2,6 +2,7 @@ import Hero from "../components/Hero";
 import Booking from "../components/Booking";
 import Services from "../components/Services";
 import Manifesto from "../components/Manifesto";
+import Letreiro from "../components/Letreiro";
 import Cuts from "../components/Cuts";
 import Studio from "../components/Studio";
 import Reveal from "../components/Reveal";
@@ -39,6 +40,9 @@ export default function Page() {
           <Hero />
           <Manifesto />
         </StackReveal>
+
+        {/* Letreiro: costura Manifesto → Serviços (fora do StackReveal, não interfere na sobreposição) */}
+        <Letreiro />
 
         {/* Serviços */}
         <section id="servicos" className="services on-ink" aria-labelledby="servicos-h">

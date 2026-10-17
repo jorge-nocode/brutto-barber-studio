@@ -13,3 +13,6 @@ refs/
 assets/
 .impeccable/
 .playwright-mcp/
+
+# build isolado de validacao
+.next-check/
