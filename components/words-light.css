@@ -1,0 +1,10 @@
+/* Palavras acesas do Manifesto. Só opacity, guiada por --p (0→1) escrito por WordsLight.tsx na seção.
+   Cada palavra tem seu índice (--i); --n é o total e --soft quantas palavras ficam "acendendo" ao mesmo tempo.
+   Sem JS, com movimento reduzido ou sem data-words="on", nada disso vale e o texto fica na cor final.
+   Reverter: remover <WordsLight /> e as spans .mf-w de Manifesto.tsx, e apagar este arquivo. */
+@media (prefers-reduced-motion: no-preference) {
+  .manifesto[data-words="on"] .mf-w {
+    --k: clamp(0, calc((var(--p, 0) * (var(--n) + var(--soft)) - var(--i)) / var(--soft)), 1);
+    opacity: calc(0.3 + 0.7 * var(--k));
+  }
+}

@@ -223,7 +223,7 @@ input { caret-color: var(--brick); }
 .manifesto__support { margin-top: clamp(1.25rem, 2vw, 1.75rem); max-width: 25rem; font-size: clamp(1.0625rem, 0.9rem + 0.5vw, 1.3125rem); line-height: 1.55; text-wrap: pretty; }
 .manifesto__close { margin-top: clamp(2rem, 3.4vw, 3.25rem); font-size: clamp(1.5rem, 2.3vw, 2.5rem); font-weight: 600; line-height: 1.1; letter-spacing: -0.025em; }
 .manifesto__close em { font-style: normal; text-decoration: underline; text-decoration-color: var(--brick); text-decoration-thickness: 0.14em; text-underline-offset: 0.18em; }
-.manifesto__close span { display: block; }
+.manifesto__close > span { display: block; }
 @media (max-width: 900px) {
   .manifesto { height: max(120vw, 38rem); }
   .manifesto__img { object-position: 54% 50%; }
