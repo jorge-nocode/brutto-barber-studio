@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Anton, Barlow_Condensed, Lora, Mrs_Saint_Delafield, Work_Sans } from "next/font/google";
 import "./globals.css";
+import WhatsAppFloat from "../components/WhatsAppFloat";
 
 const lora = Lora({ subsets: ["latin"], style: ["normal", "italic"], variable: "--font-lora", display: "swap" });
 const barlow = Barlow_Condensed({ weight: ["500", "600"], subsets: ["latin"], variable: "--font-barlow", display: "swap" });
@@ -32,11 +33,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             // 'pl' = preloader ativo em todo carregamento completo (sem storage). ?preloader=off desliga; reduced-motion pula.
             __html:
-              "(function(d){d.classList.add('js');try{var m=(location.search.match(/[?&]preloader=(\\w+)/)||[])[1];if(m==='off'||matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.classList.add('pl','pl-lock');setTimeout(function(){d.classList.remove('pl','pl-lock');d.classList.add('pl-go')},12000)}catch(e){}})(document.documentElement)",
+              "(function(d){d.classList.add('js');try{var m=(location.search.match(/[?&]preloader=(\\w+)/)||[])[1];if(location.pathname!=='/'||m==='off'||matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.classList.add('pl','pl-lock');setTimeout(function(){d.classList.remove('pl','pl-lock');d.classList.add('pl-go')},12000)}catch(e){}})(document.documentElement)",
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <WhatsAppFloat />
+      </body>
     </html>
   );
 }

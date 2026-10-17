@@ -5,11 +5,13 @@ import Manifesto from "../components/Manifesto";
 import Cuts from "../components/Cuts";
 import Studio from "../components/Studio";
 import Reveal from "../components/Reveal";
+import StackReveal from "../components/StackReveal";
 import Preloader from "../components/Preloader";
 import Wordmark from "../components/Wordmark";
 import LogoMark from "../components/LogoMark";
 import Hours from "../components/Hours";
-import { ADDRESS, INSTAGRAM_HANDLE, MAPS_EMBED_URL, MAPS_URL, INSTAGRAM_URL, WHATSAPP_DISPLAY, whatsappUrl } from "../lib/data";
+import MapEmbed from "../components/MapEmbed";
+import { ADDRESS, INSTAGRAM_HANDLE, MAPS_URL, INSTAGRAM_URL, WHATSAPP_DISPLAY, whatsappUrl } from "../lib/data";
 
 const HELLO = "Olá, BRUTTO! Gostaria de mais informações.";
 const idx = (n: number) => ({ ["--i" as string]: n }) as React.CSSProperties;
@@ -32,9 +34,11 @@ export default function Page() {
       </header>
 
       <main id="topo">
-        <Hero />
-
-        <Manifesto />
+        {/* Hero retido, Manifesto sobe por cima (components/stack-reveal.css) */}
+        <StackReveal>
+          <Hero />
+          <Manifesto />
+        </StackReveal>
 
         {/* Serviços */}
         <section id="servicos" className="services on-ink" aria-labelledby="servicos-h">
@@ -94,14 +98,7 @@ export default function Page() {
 
           <div className="where__map" data-reveal>
             <div className="where__frame">
-              <p className="where__fallback">O mapa não carregou. Use o link abaixo para abrir o endereço no Google Maps.</p>
-              <iframe
-                title={`Mapa do Google Maps: ${ADDRESS.street}, ${ADDRESS.area}`}
-                src={MAPS_EMBED_URL}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
+              <MapEmbed />
             </div>
             <div className="where__mapbar">
               <p>Localização ilustrativa</p>
@@ -140,6 +137,8 @@ export default function Page() {
               <a href={whatsappUrl(HELLO)} target="_blank" rel="noopener noreferrer">WhatsApp</a>
               <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Instagram</a>
               <a href="/creditos">Créditos das fotografias</a>
+              <a href="/politica-de-privacidade">Política de Privacidade</a>
+              <a href="/termos-de-uso">Termos de Uso</a>
             </nav>
           </div>
         </div>

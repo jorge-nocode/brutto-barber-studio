@@ -1,0 +1,18 @@
+﻿/* Botão flutuante de WhatsApp. z-index abaixo do preloader (200/210); invisível enquanto html.pl. */
+.wa-float {
+  position: fixed; z-index: 60;
+  right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom));
+  display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%;
+  background: #8a1212; color: #f2e8d5; border: 1px solid rgba(242, 232, 213, 0.35);
+  box-shadow: 0 0.5rem 1.25rem -0.5rem rgba(0, 0, 0, 0.6);
+  transition: background-color 200ms ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.wa-float svg { width: 28px; height: 28px; }
+.wa-float:active { transform: scale(0.94); }
+.wa-float:focus-visible { outline: 3px solid #f2e8d5; outline-offset: 3px; }
+.wa-float.is-away { opacity: 0; pointer-events: none; visibility: hidden; transition: opacity 220ms ease, visibility 0s 220ms, background-color 200ms ease; }
+html.pl .wa-float { visibility: hidden; }
+@media (hover: hover) and (pointer: fine) { .wa-float:hover { background: #6f0e0e; } }
+@media (prefers-reduced-motion: reduce) { .wa-float { transition: none; } }
+@media (min-width: 761px) { .wa-float { right: 1.5rem; bottom: 1.5rem; } }
+

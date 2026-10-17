@@ -1,0 +1,36 @@
+/* StackReveal (Hero → Manifesto). Adaptado do MOT-012 da KLABEL, só com CSS: sem JS, sem dependência, sem raio de canto.
+   O Hero fica retido (sticky) enquanto o Manifesto sobe por cima, cobrindo-o. Rolando para cima, o Hero reaparece.
+   Só vale com movimento permitido e suporte a sticky; fora disso o fluxo é o original (um seção depois da outra).
+   Reverter: remover o wrapper .stack-group de app/page.tsx ou apagar este arquivo. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (position: sticky) {
+    .stack-group { --hero-min: 40rem; position: relative; }
+    @media (max-width: 760px) { .stack-group { --hero-min: 46rem; } }
+
+    /* Camada de baixo. top negativo retém pelo pé quando o Hero é mais alto que a tela (mesma conta do min-height de .hero). */
+    .stack-group > .hero {
+      position: sticky;
+      top: var(--stack-top, calc(100svh - max(100svh, var(--hero-min))));
+      z-index: 0;
+    }
+    /* Camada de cima. O fundo é opaco para nunca deixar o Hero aparecer por baixo. */
+    .stack-group > .manifesto {
+      z-index: 1;
+      background: var(--ink);
+    }
+  }
+
+  /* Profundidade: sombra suave que o Manifesto projeta sobre o Hero na borda de subida. Só opacity, guiada pela rolagem. */
+  @supports (animation-timeline: view()) and (overflow-clip-margin: 1px) {
+    /* overflow: clip + margem deixa a sombra sair pelo topo (hidden a cortaria). Os filhos do Manifesto não transbordam. */
+    .stack-group > .manifesto { overflow: clip; overflow-clip-margin: 12rem; view-timeline: --stack-cover block; }
+    .stack-group > .manifesto::before {
+      content: ""; position: absolute; z-index: 3; left: 0; right: 0; bottom: 100%; height: clamp(5rem, 22vh, 11rem);
+      pointer-events: none; opacity: 0;
+      /* taste-skill-ignore: sombra de profundidade entre as duas dobras */
+      background: linear-gradient(0deg, rgba(10, 6, 3, 0.62) 0%, rgba(10, 6, 3, 0.22) 45%, rgba(10, 6, 3, 0) 100%); /* taste-skill-ignore */
+      animation: stack-shade linear both; animation-timeline: --stack-cover; animation-range: entry 0% entry 35%;
+    }
+    @keyframes stack-shade { to { opacity: 1; } }
+  }
+}

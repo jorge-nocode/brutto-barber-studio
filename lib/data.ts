@@ -1,9 +1,11 @@
 // Dados de exemplo do BRUTTO (projeto fictício usado pela KLABEL DIGITAL como vitrine). Tudo que é contato,
 // endereço, preço e horário fica aqui. Autorizado pelo proprietário; não são dados de uma empresa real.
-export const BRAND = "BRUTTO Barber Studio";
-export const WHATSAPP_NUMBER = "5511998703836"; // só dígitos, DDI+DDD
-export const WHATSAPP_DISPLAY = "(11) 99870-3836";
-export const whatsappUrl = (text: string) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+import { SITE, whatsappLink } from "./site.config";
+
+export const BRAND = SITE.companyName;
+export const WHATSAPP_NUMBER = SITE.whatsapp.number; // configurado em lib/site.config.ts
+export const WHATSAPP_DISPLAY = SITE.whatsapp.display;
+export const whatsappUrl = whatsappLink;
 export const INSTAGRAM_URL = "https://www.instagram.com/klabeldigital/";
 export const INSTAGRAM_HANDLE = "@klabeldigital";
 export const ADDRESS = { street: "Avenida Paulista, 1200", area: "Bela Vista, São Paulo/SP" }; // endereço ilustrativo

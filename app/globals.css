@@ -812,3 +812,25 @@ legend.step__label { float: left; }
   .js .footer__brand[data-reveal] { transform: translateY(28px); transition: opacity 900ms var(--ease-out), transform 1200ms var(--ease-out); }
   .js .footer__brand[data-reveal].is-in { transform: none; }
 }
+
+/* Páginas legais: reaproveitam o layout de .credits */
+.legal section { max-width: 62ch; margin-top: clamp(2rem, 4vw, 3rem); }
+.legal h2 { font-family: var(--font-cond); font-weight: 600; font-size: 1.25rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.legal p, .legal li { margin-top: 0.75rem; line-height: 1.6; }
+.legal ul { margin-top: 0.5rem; padding-left: 1.25rem; list-style: disc; }
+.legal__meta { margin-top: 0.75rem; opacity: 0.75; }
+.legal__draft { max-width: 62ch; margin-top: 1.5rem; padding: 1rem 1.25rem; border-left: 3px solid #c23a2e; background: rgba(231, 227, 218, 0.07); line-height: 1.55; }
+.legal__pending { background: #e8c25a; color: #101010; padding: 0 0.3em; font-weight: 600; }
+
+/* Mapa sob demanda: prévia dentro do .where__frame; o iframe só existe depois do clique */
+.mapgate { position: absolute; inset: 0; display: grid; place-items: center; padding: 1.5rem; overflow: hidden; }
+.mapgate__grid { position: absolute; inset: 0; opacity: 0.55; background:
+  repeating-linear-gradient(90deg, transparent 0 79px, rgba(16, 16, 16, 0.12) 79px 80px),
+  repeating-linear-gradient(0deg, transparent 0 79px, rgba(16, 16, 16, 0.12) 79px 80px),
+  linear-gradient(115deg, transparent 0 46%, rgba(138, 18, 18, 0.18) 46% 47.2%, transparent 47.2%); }
+.mapgate__card { position: relative; display: grid; justify-items: center; gap: 1rem; max-width: 24rem; padding: 1.5rem 1.75rem; text-align: center; background: #ece2d0; border-top: 3px solid var(--w-red); }
+.mapgate__addr { font-family: var(--font-cond); font-weight: 600; font-size: 1.125rem; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.35; }
+.mapgate__btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 1.75rem; background: #8a1212; color: #f2e8d5; font-family: var(--font-display); font-size: 1.25rem; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; transition: background-color var(--t-hover) ease, transform var(--t-press) var(--ease-out); }
+.mapgate__btn:active { transform: scale(0.97); }
+@media (hover: hover) and (pointer: fine) { .mapgate__btn:hover { background: #6f0e0e; } }
+.mapgate__note { font-size: 0.875rem; line-height: 1.4; color: var(--w-soft); }
