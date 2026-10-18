@@ -55,6 +55,7 @@ export default function Preloader() {
       flyEl.style.cssText = `left:${T.left}px;top:${T.top}px;width:${T.width}px;height:${T.height}px;transform-origin:0 0;`;
       from = `translate(${(vw - W0) / 2 - T.left}px, ${(vh - H0) / 2 - T.top}px) scale(${s})`;
       flyEl.style.transform = from;
+      flyEl.style.visibility = "visible";
       return true;
     };
     const placed = place();
