@@ -10,7 +10,7 @@
   --brick-strong: #7f2a23;
   --mineral: #73736e;
 
-  --font-display: var(--font-anton), "Arial Narrow", sans-serif;
+  --font-display: var(--font-anton), "Anton Fallback", "Arial Narrow", sans-serif;
   --font-text: var(--font-work), system-ui, sans-serif;
 
   /* cinco degraus de tipo */
@@ -858,4 +858,14 @@ legend.step__label { float: left; }
 /* Mobile: respiro superior de ~40–48 px em vez de 88–95 px. O cabeçalho fixo é coberto por scroll-padding-top. */
 @media (max-width: 600px) {
   .svcs__lead { padding-top: clamp(2.5rem, 11vw, 3rem); }
+}
+
+/* Fallback calibrado da Anton: o size-adjust padrão do next/font (90,69%) vem de xAvgCharWidth e deixa o texto em CAIXA ALTA ~28% mais largo que a Anton real; 71% é a razão medida (largura Anton / Arial) nos textos do site. ascent/descent são os da Anton (117,63% / 32,91%) divididos pelo size-adjust. */
+@font-face {
+  font-family: "Anton Fallback";
+  src: local("Arial");
+  size-adjust: 71%;
+  ascent-override: 165.68%;
+  descent-override: 46.35%;
+  line-gap-override: 0%;
 }

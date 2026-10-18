@@ -7,7 +7,7 @@ const lora = Lora({ subsets: ["latin"], style: ["normal", "italic"], variable: "
 const barlow = Barlow_Condensed({ weight: ["500", "600"], subsets: ["latin"], variable: "--font-barlow", display: "swap" });
 
 const script = Mrs_Saint_Delafield({ weight: "400", subsets: ["latin"], variable: "--font-script", display: "swap" });
-const anton = Anton({ weight: "400", subsets: ["latin"], variable: "--font-anton", display: "swap" });
+const anton = Anton({ weight: "400", subsets: ["latin"], variable: "--font-anton", display: "swap", adjustFontFallback: false });
 const work = Work_Sans({ weight: ["400", "500", "600"], subsets: ["latin"], variable: "--font-work", display: "swap" });
 
 export const metadata: Metadata = {
