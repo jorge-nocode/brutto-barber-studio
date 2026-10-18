@@ -1,22 +1,29 @@
-/* Letreiro (Manifesto → Serviços). Faixa brick com Anton em papel que corre sem emenda (duas cópias; a segunda é aria-hidden).
-   Revelação por clip-path da esquerda para a direita quando entra na tela; o movimento é feito por Letreiro.tsx (transform).
+/* Letreiro (Manifesto → Serviços): faixa fina, preta, assinatura editorial em movimento. Anton pequeno em creme discreto,
+   losangos brick como separador. Duas cópias para o loop sem emenda (a segunda é aria-hidden); Letreiro.tsx só move o trilho.
+   Revelação por clip-path da esquerda para a direita quando entra na tela.
    Reduced-motion e sem JS: texto parado e legível, quebrando em linhas se precisar.
    Reverter: remover <Letreiro /> de app/page.tsx e apagar estes dois arquivos. */
 .letreiro {
+  --lt-h: 36px;
   position: relative; overflow: hidden; contain: paint;
-  padding-block: clamp(1.1rem, 2.4vw, 2.2rem);
+  height: var(--lt-h); display: flex; align-items: center;
+  background: var(--ink); color: var(--paper);
 }
 .letreiro__track { display: flex; width: max-content; will-change: transform; }
 .letreiro__copy { display: flex; flex: none; align-items: center; margin: 0; padding: 0; list-style: none; }
 .letreiro__item {
   flex: none; display: flex; align-items: center; white-space: nowrap;
-  font-family: var(--font-display); text-transform: uppercase; line-height: 0.9; letter-spacing: -0.005em;
-  font-size: clamp(3.25rem, 9.5vw, 9rem);
+  font-family: var(--font-display); text-transform: uppercase; line-height: 1;
+  font-size: 15px; letter-spacing: 0.3em; opacity: 0.65;
 }
-/* Separador: quadrado girado (a marca da cruz da navalha, sem ícone decorativo extra) */
+/* Separador: losango brick. O espaço grande vem da margem, não de padding da faixa. */
 .letreiro__item::after {
-  content: ""; flex: none; width: 0.2em; height: 0.2em; margin-inline: 0.5em;
-  background: var(--ink); transform: rotate(45deg);
+  content: ""; flex: none; width: 5px; height: 5px; margin-inline: clamp(1.75rem, 3.2vw, 3rem) calc(clamp(1.75rem, 3.2vw, 3rem) - 0.3em);
+  background: var(--brick); transform: rotate(45deg); opacity: 1;
+}
+@media (max-width: 760px) {
+  .letreiro { --lt-h: 30px; }
+  .letreiro__item { font-size: 12px; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -24,8 +31,8 @@
   .js .letreiro.is-in { clip-path: inset(0 0 0 0); }
 }
 @media (prefers-reduced-motion: reduce) {
+  .letreiro { height: auto; min-height: var(--lt-h); padding-block: 0.5rem; }
   .letreiro__track { display: block; width: auto; padding-inline: var(--margin); }
-  .letreiro__copy { flex: 0 1 auto; flex-wrap: wrap; row-gap: 0.1em; }
+  .letreiro__copy { flex: 0 1 auto; flex-wrap: wrap; row-gap: 0.4em; }
   .letreiro__copy[aria-hidden="true"] { display: none; }
-  .letreiro__item { font-size: clamp(2.5rem, 7vw, 6rem); }
 }
