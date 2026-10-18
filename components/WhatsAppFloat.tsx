@@ -5,7 +5,9 @@ import "./whatsapp-float.css";
 
 // Botão flutuante de WhatsApp (todas as páginas). Número e mensagem: lib/site.config.ts.
 // Fica atrás do preloader (z-index menor e invisível enquanto html.pl) e se retira quando o logotipo
-// do rodapé aparece, para não cobrir o rodapé. Só anima opacity.
+// do rodapé aparece, para não cobrir o rodapé. Também se retira enquanto estaria por cima de um CTA principal
+// (Solicitar pelo WhatsApp, Agendar horário do rodapé, botões do Hero): detecção de oclusão real, porque o Hero fica
+// sob o Manifesto (StackReveal) e a interseção por IO não percebe a cobertura. Só anima opacity.
 export default function WhatsAppFloat() {
   const ref = useRef<HTMLAnchorElement>(null);
 
@@ -15,7 +17,30 @@ export default function WhatsAppFloat() {
     if (!el || !brand || !("IntersectionObserver" in window)) return;
     const io = new IntersectionObserver(([e]) => el.classList.toggle("is-away", e.isIntersecting), { threshold: 0 });
     io.observe(brand);
-    return () => io.disconnect();
+
+    // CTAs que o botão não pode cobrir. O botão mantém o retângulo mesmo oculto (visibility), então a medida é estável.
+    const ctas = Array.from(document.querySelectorAll<HTMLElement>(".send, .footer__cta, .hero__btn"));
+    let raf = 0;
+    const check = () => {
+      raf = 0;
+      const f = el.getBoundingClientRect();
+      let over = false;
+      for (const c of ctas) {
+        const r = c.getBoundingClientRect();
+        const x0 = Math.max(r.left, f.left), x1 = Math.min(r.right, f.right);
+        const y0 = Math.max(r.top, f.top), y1 = Math.min(r.bottom, f.bottom);
+        if (x1 - x0 < 1 || y1 - y0 < 1) continue;
+        // o primeiro elemento sob o botão (ignorando o próprio botão) precisa ser o CTA: senão outra camada o cobre
+        const under = document.elementsFromPoint((x0 + x1) / 2, (y0 + y1) / 2).find((n) => n !== el && !el.contains(n));
+        if (under && c.contains(under)) { over = true; break; }
+      }
+      el.classList.toggle("is-over-cta", over);
+    };
+    const queue = () => { if (!raf) raf = requestAnimationFrame(check); };
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", queue);
+    check();
+    return () => { io.disconnect(); window.removeEventListener("scroll", queue); window.removeEventListener("resize", queue); cancelAnimationFrame(raf); };
   }, []);
 
   return (
