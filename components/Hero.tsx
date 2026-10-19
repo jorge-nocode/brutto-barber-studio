@@ -105,7 +105,7 @@ export default function Hero() {
             ))}
           </span>
         </h1>
-        <p className="hero__sub"><span style={i(0)}>Seu estilo, em boas mãos.</span></p>
+        <p className="hero__sub"><span style={i(0)}>Brutalmente bem-feito.</span></p>
 
         <p className="hero__lead" data-in style={i(4)}>
           Um espaço para cuidar de você, com atenção aos detalhes, bons profissionais e horário marcado.

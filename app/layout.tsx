@@ -1,12 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Anton, Barlow_Condensed, Lora, Mrs_Saint_Delafield, Work_Sans } from "next/font/google";
+import { Anton, Barlow_Condensed, Lora, Pinyon_Script, Work_Sans } from "next/font/google";
 import "./globals.css";
 import WhatsAppFloat from "../components/WhatsAppFloat";
 
 const lora = Lora({ subsets: ["latin"], style: ["normal", "italic"], variable: "--font-lora", display: "swap" });
 const barlow = Barlow_Condensed({ weight: ["500", "600"], subsets: ["latin"], variable: "--font-barlow", display: "swap" });
 
-const script = Mrs_Saint_Delafield({ weight: "400", subsets: ["latin"], variable: "--font-script", display: "swap" });
+// Assinatura caligráfica da marca: Pinyon Script (copperplate, alto contraste de traço e floreio), referência aprovada pelo
+// proprietário. Substitui a Mrs Saint Delafield (monolinear, sem o caráter da referência "Haute Couture").
+const script = Pinyon_Script({ weight: "400", subsets: ["latin"], variable: "--font-script", display: "swap" });
 const anton = Anton({ weight: "400", subsets: ["latin"], variable: "--font-anton", display: "swap", adjustFontFallback: false });
 const work = Work_Sans({ weight: ["400", "500", "600"], subsets: ["latin"], variable: "--font-work", display: "swap" });
 
